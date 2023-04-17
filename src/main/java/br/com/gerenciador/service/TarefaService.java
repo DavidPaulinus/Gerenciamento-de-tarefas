@@ -35,4 +35,14 @@ public class TarefaService {
 		
 		return resp;
 	}
+
+	public String deletarPorId(Long id) {
+		try {
+			repo.deleteById(id);
+			return "Tarefa excluida com sucesso!";
+		}catch(Exception e) {
+			throw new RuntimeException("Tarefa com ID não encontrada");
+		}
+		
+	}
 }
