@@ -1,6 +1,8 @@
 package br.com.gerenciador.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import br.com.gerenciador.model.Tarefa;
@@ -17,5 +19,13 @@ public class TarefaService {
 		repo.save(resp);
 
 		return resp;
+	}
+
+	public Page<Tarefa> listar() {
+		return new PageImpl<Tarefa>(repo.findAll());
+	}
+
+	public Tarefa detalharPorId(Long id) {
+		return repo.findById(id).orElseThrow(() -> new RuntimeException("Tarefa Não encontrada"));
 	}
 }
