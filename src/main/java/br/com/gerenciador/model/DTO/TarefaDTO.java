@@ -22,8 +22,9 @@ public record TarefaDTO(
 		
 		@NotNull
 		@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-		LocalDateTime notificacao
+		LocalDateTime notificacao,
 		
+		Boolean completo
 		) {
 
 }

@@ -28,4 +28,11 @@ public class TarefaService {
 	public Tarefa detalharPorId(Long id) {
 		return repo.findById(id).orElseThrow(() -> new RuntimeException("Tarefa Não encontrada"));
 	}
+
+	public Tarefa editar(TarefaDTO dto, Long id) {
+		var resp = detalharPorId(id);
+		resp.atualizar(dto);
+		
+		return resp;
+	}
 }

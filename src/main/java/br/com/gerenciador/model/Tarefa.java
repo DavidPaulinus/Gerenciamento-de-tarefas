@@ -26,6 +26,7 @@ public class Tarefa {
 	private String descricao;
 	private LocalDateTime data;
 	private LocalDateTime notificacao;
+	private Boolean completo;
 
 	public Tarefa(TarefaDTO dto) {
 		this.cor = dto.cor();
@@ -33,6 +34,16 @@ public class Tarefa {
 		this.descricao = dto.descricao();
 		this.data = dto.data();
 		this.notificacao = dto.notificacao();
+		this.completo = false;
+	}
+
+	public void atualizar(TarefaDTO dto) {
+		this.cor = dto.cor();
+		this.nome = dto.nome();
+		this.descricao = dto.descricao();
+		this.data = dto.data();
+		this.notificacao = dto.notificacao();
+		this.completo = dto.completo();
 	}
 
 }
