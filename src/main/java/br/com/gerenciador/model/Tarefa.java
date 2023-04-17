@@ -46,4 +46,22 @@ public class Tarefa {
 		this.completo = dto.completo();
 	}
 
+	public void concluir() {
+		if (this.completo) {
+			throw new RuntimeException("Tarefa já está concluída.");
+		} else {
+			this.completo = true;
+
+		}
+	}
+
+	public void fazer() {
+		if (!this.completo) {
+			throw new RuntimeException("Tarefa já está para ser feita.");
+		} else {
+			this.completo = false;
+
+		}
+	}
+
 }
