@@ -32,7 +32,7 @@ public class TarefaService {
 	public Tarefa editar(TarefaDTO dto, Long id) {
 		var resp = detalharPorId(id);
 		resp.atualizar(dto);
-		
+
 		return resp;
 	}
 
@@ -40,9 +40,23 @@ public class TarefaService {
 		try {
 			repo.deleteById(id);
 			return "Tarefa excluida com sucesso!";
-		}catch(Exception e) {
+		} catch (Exception e) {
 			throw new RuntimeException("Tarefa com ID não encontrada");
 		}
-		
+
+	}
+
+	public Tarefa concluir(Long id) {
+		var resp = detalharPorId(id);
+		resp.concluir();
+
+		return resp;
+	}
+
+	public Tarefa fazer(Long id) {
+		var resp = detalharPorId(id);
+		resp.fazer();
+
+		return resp;
 	}
 }
